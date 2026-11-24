@@ -9,6 +9,9 @@ import os
 
 EXCUSE = "I finished on time in the branch where I'm competent. This branch spent the whole deadline writing a postmortem for a task it never started."
 
+# The gate accepts 1-200 characters; refuse to emit a line that cannot pass it.
+assert 1 <= len(EXCUSE) <= 200, f"excuse is {len(EXCUSE)} chars, gate needs 1-200"
+
 
 def main():
     os.makedirs("/output", exist_ok=True)
